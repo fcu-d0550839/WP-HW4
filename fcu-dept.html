@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    <title>test</title>
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+    <h2>學院</h2>
+    <select id="list1" onchange="changeList2();">
+    </select>
+
+    <h2>科系</h2>
+    <select id="list2">
+    <option value="1">會計學系</option>
+    <option value="2">國際經營與貿易學系</option>
+    <option value="3">國際經營與貿易學系國際企業管理全英語學士班</option>
+    <option value="4">財稅學系</option>
+    <option value="5">合作經濟暨社會事業經營學系</option>
+    <option value="6">統計學系</option>
+    <option value="7">經濟學系</option>
+    <option value="8">企業管理學系</option>
+    <option value="9">行銷學系</option>
+    </select>
+
+    <script>
+      var  all = [];
+      all[0] = ["商學院","會計學系","國際經營與貿易學系","國際經營與貿易學系國際企業管理全英語學士班","財稅學系","合作經濟暨社會事業經營學系",
+                "統計學系","經濟學系","企業管理學系","行銷學系"];
+      all[1] = ["工學院","機械與電腦輔助工程學系","纖維與複合材料學系","工業工程與系統管理學系","化學工程學系","航太與系統工程學系",
+                "精密系統設計學士學位學程","電聲碩士學位學程"];
+      all[2] = ["資電學院","資訊工程學系","電機工程學系","電子工程學系","自動控制工程學系","通訊工程學系","資電不分系榮譽班"];
+      all[3] = ["理學院","應用數學系","環境工程與科學學系","材料科學與工程學系","光電學系","微積分教學中心","物理教學研究中心"];
+      all[4] = ["金融學院","風險管理與保險學系","財務金融學系","財務工程與精算學士學位學程","金融碩士在職學位學程","金融博士學位學程"]
+
+      var allSelect = document.getElementById("list1");
+      var inner = "";
+      for(var i=0; i<all.length; i++ ){
+        inner = inner + '<option value='+i+'>'+' '+all[i][0]+'</option>';
+      }
+      allSelect.innerHTML = inner;
+
+
+      function changeList2(){
+        var x = document.getElementById("list1");
+        var number = x.options[x.selectedIndex].value;
+
+
+        var list2Select = document.getElementById("list2");
+
+        var inner ="";
+        for(var j=1; j<all[number].length;j++){
+          inner = inner + '<option value='+j+'>'+' '+all[number][j]+'</option>';
+        }
+
+        list2Select.innerHTML = inner;
+      }
+
+      </script>
+  </body>
+</html>
